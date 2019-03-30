@@ -13,7 +13,7 @@ export class AppComponent {
 
     userModel = new User('', 'user@test.com', 23123, 'default', 'morning', true);
 
-    constructor( private _enrollmentService: EnrollmentService){}
+    constructor( public _enrollmentService: EnrollmentService){}
 
     validateTopic(value){
         if (value === 'default'){
