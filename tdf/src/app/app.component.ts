@@ -10,8 +10,9 @@ import {EnrollmentService} from './enrollment.service';
 export class AppComponent {
     topics = ['Angular', 'React', 'Html']
     topicHasError = true;
-
-    userModel = new User('', 'user@test.com', 23123, 'default', 'morning', true);
+    submitted = false;
+    userModel = new User('Rob', 'user@test.com', 2312311111, 'default', 'morning', true);
+    errorMsg = '';
 
     constructor( public _enrollmentService: EnrollmentService){}
 
@@ -24,11 +25,13 @@ export class AppComponent {
         }
     }
 
-    onSubmit(){
-        this._enrollmentService.enroll(this.userModel)
-            .subscribe(
-                data => console.log('Success!', data),
-                error => console.error('Error!', error)
-            )
+    onSubmit(userForm){
+        console.log(userForm);
+        // this.submitted = true;
+        // this._enrollmentService.enroll(this.userModel)
+        //     .subscribe(
+        //         data => console.log('Success!', data),
+        //         error => this.errorMsg = error.statusText
+        //     )
     }
 }
